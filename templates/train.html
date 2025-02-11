@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Student for AI Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container {
+            margin: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Train New Student</h1>
+        <form action="{{ url_for('train') }}" method="post">
+            <label for="name">Enter Student Name:</label><br><br>
+            <input type="text" id="name" name="name" placeholder="Student Name" required><br><br>
+            <button type="submit">Start Training</button>
+        </form>
+        <br>
+        <a href="{{ url_for('home') }}"><button>Back to Home</button></a>
+    </div>
+
+</body>
+</html>

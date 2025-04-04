@@ -1,0 +1,22 @@
+# Core Requirements
+flask==2.3.2
+opencv-python-headless==4.7.0.72  # Lighter than full opencv
+numpy==1.23.5  # Last version with full Pi 3 support
+face-recognition==1.3.0
+mediapipe==0.10.0  # Optimized for ARM
+python-dotenv==1.0.0  # For config management
+
+# Database/Excel
+pandas==1.5.3
+openpyxl==3.1.2  # For Excel operations
+
+# Hardware Accelerated Packages
+picamera2==0.3.7  # If using Raspberry Pi camera
+libcamera==0.0.12  # Camera support
+
+# Lightweight Alternatives
+Pillow==9.5.0  # Replaces heavier image libs
+imutils==0.5.4  # Basic image utilities
+
+# System Tools
+psutil==5.9.5  # For monitoring Pi performance

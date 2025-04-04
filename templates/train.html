@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Train Student for AI Attendance</title>
+    <title>Train New Student - AI Attendance System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,42 +13,101 @@
             padding-top: 50px;
         }
         .container {
-            margin: 20px;
+            margin: 20px auto;
+            max-width: 700px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         input[type="text"] {
             padding: 10px;
-            width: 300px;
+            margin: 10px 0;
+            width: 80%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             font-size: 16px;
-            margin-bottom: 20px;
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 24px;
+            margin: 15px 0;
             background-color: #4CAF50;
             color: white;
             border: none;
+            border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
         }
         button:hover {
             background-color: #45a049;
         }
+        .back-button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
         h1 {
             color: #333;
+        }
+        .instructions {
+            text-align: left;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            line-height: 1.5;
+        }
+        .video-container {
+            margin: 20px auto;
+            max-width: 520px;
+            border: 5px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .video-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Train New Student</h1>
-        <form action="{{ url_for('train') }}" method="post">
-            <label for="name">Enter Student Name:</label><br><br>
-            <input type="text" id="name" name="name" placeholder="Student Name" required><br><br>
+
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Enter the student's full name below</li>
+                <li>Click "Start Training" to begin</li>
+                <li>The system will capture 5000 images of your face</li>
+                <li>Look directly at the camera and move your head slightly between captures</li>
+                <li>Ensure good lighting for best results</li>
+                <li>The process will take approximately 7500 seconds or 2 hour & 5 min </li>
+            </ol>
+        </div>
+
+        <!-- Video Preview -->
+        <div class="video-container">
+            <img src="{{ url_for('video_feed') }}" alt="Camera Preview">
+        </div>
+
+        <form method="POST">
+            <input type="text" id="name" name="name" placeholder="Enter student's full name" required>
             <button type="submit">Start Training</button>
         </form>
-        <br>
-        <a href="{{ url_for('home') }}"><button>Back to Home</button></a>
-    </div>
 
+        <a href="{{ url_for('video_feed') }}" class="back-button">Back to Home</a>
+    </div>
 </body>
 </html>
